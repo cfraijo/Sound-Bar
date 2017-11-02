@@ -38,16 +38,15 @@ $(document).ready(function(){
           method: "GET"
         })
               .done(function(response) {
-          		var results3 = response.data;
+          		var results3 = response._embedded;
 
           		
 
-          			console.log(response.data);
+          			console.log(results3);
 
           		
           
         });
-
 
 
 });
