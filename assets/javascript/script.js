@@ -67,7 +67,7 @@ $(document).ready(function(){
           			   console.log("results: " + results3[i].venue);
 
                    $("#tour-dates").append("<div>" + results3[i].name + "</div>");
-                   $("#tour-dates").append("<div>" + results3[i]._embedded.venue.city + "</div>");
+                   $("#tour-dates").append("<div>" + results3[i]._embedded.venue[0].city.name + "</div>");
                    $("#tour-dates").append("<div>" + results3[i].dates.start.localDate + "</div>");
                 }
           
