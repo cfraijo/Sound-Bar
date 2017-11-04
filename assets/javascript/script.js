@@ -1,6 +1,7 @@
 $(document).ready(function(){  
 
       var searchQuery = "Michael Jackson";
+      
       var queryURL = "http://api.musicgraph.com/api/v2/artist/search?api_key=4db32eb564d567abea9870b5e9381c4b&name=" + searchQuery + "&limit=1";
 
       var queryURL2 = "http://api.musicgraph.com/api/v2/artist/search?api_key=4db32eb564d567abea9870b5e9381c4b&similar_to=" + searchQuery + "&limit=10";
