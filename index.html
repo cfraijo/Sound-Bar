@@ -2,8 +2,108 @@
 <html>
 <head>
 	<title>Sound Bar</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+	
 </head>
 <body>
+<div class = "container">
+
+  <div class="row">
+    <div class="header">
+      <img src="images/logo.png" class="logo">
+    </div>
+  </div>
+
+  <div class="row"> <!-- div for sliding album artwork -->
+    <div class="center">
+      <div class="albums">your content</div>
+      <div class="albums">your content</div>
+      <div class="albums">your content</div>
+      <div class="albums">your content</div>
+      <div class="albums">your content</div>
+    </div>
+  </div>
+
+  <div class="row"> <!-- div for search bar -->
+    <div class="col-md-2"></div>
+
+    <div id="custom-search-input">
+      <div class="input-group col-md-8">
+        <input type="text" class="  search-query form-control" placeholder="Search"/>
+          <span class="input-group-btn">
+            <button class="btn btn-danger" type="button">
+              <span class=" glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+      </div>
+    </div>
+
+    <div class="col-md-2"></div>
+
+  </div> <!-- closes out div for search input row -->
+
+  <div class="row"> <!-- div for profile pic and bio -->
+
+    <div class ="col-md-2"></div> <!-- blank space to left of profile pic -->
+
+    <div class="col-md-2 profile"> <!-- div for profile pic -->
+    </div>
+
+    <div class="col-md-1"></div> <!-- blank space in between profile pic and bio -->
+
+    <div class="col-md-5 bio">
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+    </div> <!-- div for bio -->
+
+    <div class="col-md-2"></div> <!-- blank space to right of bio -->
+
+  </div> 
+
+  <div class="row">
+    <div class="col-md-2"></div> <!-- white space to left of albums -->
+
+    <div class="col-md-2 Albums"> <!-- album div -->
+      <h3>Albums</h3>
+    </div>
+
+    <div class="col-md-1"></div> <!-- white space between albums and tracks -->
+
+    <div class="col-md-2 Tracks"> <!-- tracks div -->
+      <h3>Tracks</h3>
+    </div>
+
+    <div class="col-md-1"></div> <!-- white space between tracks and tour dates -->
+    
+    <div class="col-md-2 tourDates"> <!-- tour dates div -->
+      <h3>Tour Dates</h3>
+    </div>
+
+  </div>
+
+</div> <!-- closes out container -->
+
+  <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.center').slick({
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+      });
+    });
+
+</script>
 
 </body>
 </html>
