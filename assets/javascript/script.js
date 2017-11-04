@@ -1,5 +1,11 @@
 $(document).ready(function(){  
 
+    $('.center').slick({
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+      });
+
       var searchQuery = "Michael Jackson";
       
       var queryURL = "http://api.musicgraph.com/api/v2/artist/search?api_key=4db32eb564d567abea9870b5e9381c4b&name=" + searchQuery + "&limit=1";
@@ -47,20 +53,20 @@ $(document).ready(function(){
               .done(function(response) {
           		var results3 = response._embedded.events;
 
-              var venue = "_embedded.venue.name";
+              var venue = "_embedded.venue.city";
 
-              var venueDate = "_embedded.venue.dates.start.localDate";
+              var venueDate = "dates.start.localDate";
 
               console.log(results3[0].venue);
-              console.log(results3[0].venueDate);
+              console.log(results3[0].dates.start.localDate);
 
           		for(var i = 0; i < 10; i++) {
 
           			   console.log("results: " + results3[i].venue);
 
                    $("#tour-dates").append("<div>" + results3[i].name + "</div>");
-                   $("#tour-dates").append("<div>" + results3[i].venue + "</div>");
-                   $("#tour-dates").append("<div>" + results3[i].venueDate + "</div>");
+                   $("#tour-dates").append("<div>" + results3[i]._embedded.venue.city + "</div>");
+                   $("#tour-dates").append("<div>" + results3[i].dates.start.localDate + "</div>");
                 }
           
         });
