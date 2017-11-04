@@ -11,6 +11,28 @@ p{
 	color: white;
 }
 
+nav{
+	background-color: black !important;
+	padding: 15px 20px;
+	margin-bottom: 20px;
+}
+
+.row{
+	margin: 40px 0px;
+}
+
 .logo{
 	width: 200px;
+}
+
+.profile{
+	width: 200px;
+}
+
+.albums:hover{
+	transform: scale(1.1);
+}
+
+.center.dots{
+	color: white;
 }

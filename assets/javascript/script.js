@@ -1,5 +1,6 @@
 $(document).ready(function(){  
 
+
     $('.center').slick({
         infinite: true,
         slidesToShow: 5,
@@ -16,7 +17,6 @@ $(document).ready(function(){
 
       var queryURL4 = "http://api.musicgraph.com/api/v2/album/search?api_key=4db32eb564d567abea9870b5e9381c4b&artist_name=" + searchQuery + "&limit=10";
 
-      
 
       $.ajax({
           url: queryURL,
@@ -40,6 +40,7 @@ $(document).ready(function(){
 
           			console.log(results2[i].name);
 
+
                 $("#similar").append("<div>" + results2[i].name + "</div>");
 
           		}
@@ -51,6 +52,7 @@ $(document).ready(function(){
           method: "GET"
         })
               .done(function(response) {
+
           		var results3 = response._embedded.events;
 
               var venue = "_embedded.venue.city";
@@ -87,6 +89,7 @@ $(document).ready(function(){
               }
           
         });       
+
 
 
 });
