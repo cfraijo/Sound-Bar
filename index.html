@@ -3,10 +3,9 @@
 <head>
 	<title>Sound Bar</title>
 
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+	<script src="assets/javascript/script.js"></script>
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
   <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 
@@ -73,19 +72,19 @@
   <div class="row">
     <div class="col-md-2"></div> <!-- white space to left of albums -->
 
-    <div class="col-md-2 Albums"> <!-- album div -->
+    <div class="col-md-2 Albums" id="albums"> <!-- album div -->
       <h3>Albums</h3>
     </div>
 
     <div class="col-md-1"></div> <!-- white space between albums and tracks -->
 
-    <div class="col-md-2 Tracks"> <!-- tracks div -->
-      <h3>Tracks</h3>
+    <div class="col-md-2 Tracks" id="similar"> <!-- tracks div -->
+      <h3>Similar Artists</h3>
     </div>
 
     <div class="col-md-1"></div> <!-- white space between tracks and tour dates -->
     
-    <div class="col-md-2 tourDates"> <!-- tour dates div -->
+    <div class="col-md-2 tourDates" id="tour-dates"> <!-- tour dates div -->
       <h3>Tour Dates</h3>
     </div>
 
@@ -98,7 +97,7 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="slick/slick.min.js"></script>
 
-  <script type="text/javascript">
+ <!--  <script type="text/javascript">
     $(document).ready(function(){
       $('.center').slick({
             centerMode: true,
@@ -132,7 +131,7 @@
 
     });
 
-</script>
+</script> -->
 
 <script src="assets/javascript/script.js"></script>
 
