@@ -21,15 +21,15 @@
     </div>
   </div>
 
-  <div class="row"> <!-- div for sliding album artwork -->
+  <!-- <div class="row"> --> <!-- div for sliding album artwork -->
     <div class="center">
-      <div class="albums">your content</div>
-      <div class="albums">your content</div>
-      <div class="albums">your content</div>
-      <div class="albums">your content</div>
-      <div class="albums">your content</div>
+      <div class="albums"><img src="images/demoAlbums/abbeyroad.jpg"></div>
+      <div class="albums"><img src="images/demoAlbums/bad.jpg"></div>
+      <div class="albums"><img src="images/demoAlbums/fleetwoodmac.jpg"></div>
+      <div class="albums"><img src="images/demoAlbums/kiss.jpg"></div>
+      <div class="albums"><img src="images/demoAlbums/pinkfloyd.jpg"></div>
     </div>
-  </div>
+  <!-- </div> -->
 
   <div class="row"> <!-- div for search bar -->
     <div class="col-md-2"></div>
@@ -53,7 +53,8 @@
 
     <div class ="col-md-2"></div> <!-- blank space to left of profile pic -->
 
-    <div class="col-md-2 profile"> <!-- div for profile pic -->
+    <div class="col-md-2"> <!-- div for profile pic -->
+      <img src="images/logic.png" class="profile">
     </div>
 
     <div class="col-md-1"></div> <!-- blank space in between profile pic and bio -->
@@ -97,10 +98,35 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $('.center').slick({
-        infinite: true,
-        slidesToShow: 5,
-        slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '60px',
+            slidesToShow: 3,
+            dots: true,
+            arrows: false,
+            responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+            dots: true,
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 3
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+            dots: true,
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+            }
+          }
+        ]
       });
+
     });
 
 </script>
