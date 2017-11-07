@@ -1,11 +1,66 @@
 $(document).ready(function(){  
 
-
-    $(".center").slick({
+      $(".center").slick({
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 1,
       });
+// -------------------------------------------------
+
+var globalResponse ;
+var url = "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=9bbc09319f9d9e5f95dfe0da622dbd29&format=json"
+//var url = "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=9bbc09319f9d9e5f95dfe0da622dbd29&format=json"
+var ranNums = generated();
+$(document).on('click', function(){
+    $.ajax({
+            url: url, 
+            type: 'get',
+            success: function(response){
+                for (var i = 0; i < ranNums.length; i++) {
+                    var iDiv = document.createElement('div');
+                    iDiv.id = 'albums';
+                    iDiv.className = 'album';
+                    var div = document.getElementById("center");
+                    $(div).append(iDiv);
+                    // The variable iDiv is still good... Just append to it.
+                    var image = $('<img>');
+                    var math = generated();
+                    image.attr('src',response.artists.artist[i].image[3]['#text']);
+                    // console.log(response.artists.artist[i].image[3]);
+                    $(iDiv).append(image);      
+                };
+                
+            }
+    })
+    });
+//random number including 0 and 9
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+}
+//Take numbers generated,
+function generated(){
+    var array = [];
+    while (array.length < 10){
+        var num = getRandomIntInclusive(0,9);
+        if(array.includes(num) === false){
+            array.push(num);
+        }
+    }
+    return array;
+    return num;
+}
+// If number generated isnt in the array, insert into array
+//if array length = 10 stop
+// and add them to a blank array
+//
+
+// -------------------------------------------------
+
+    $("#albums").hide();
+    $("#similar").hide();
+    $("#tour-dates").hide();
 
       var searchQuery, queryURL, queryURL2, queryURL3, queryURL4, queryURL5;
       
@@ -13,6 +68,10 @@ $(document).ready(function(){
       $("#button").on("click", function(event){
 
         event.preventDefault();
+
+        $("#albums").show();
+        $("#similar").show();
+        $("#tour-dates").show();
 
         if(searchQuery !== undefined){
 
@@ -131,6 +190,8 @@ $(document).ready(function(){
                   console.log("IMAGE: " + results6["#text"]);
 
                   $("#bio-image").html("<img src='" + results6["#text"] + "' class='append'>");
+
+                  $("#artist-name").append("<h2 class='append'>" + response.artist.name + "</h2>");
 
                 }); 
 
