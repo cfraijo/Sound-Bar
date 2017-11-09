@@ -26,6 +26,59 @@ $(document).ready(function(){
           ]
         });
 
+          var config = {
+            apiKey: "AIzaSyC0UaEOzQ4j-c_EFcUlhJKJaRmuL35Uay0",
+            authDomain: "soundbar-150bf.firebaseapp.com",
+            databaseURL: "https://soundbar-150bf.firebaseio.com",
+            projectId: "soundbar-150bf",
+            storageBucket: "soundbar-150bf.appspot.com",
+            messagingSenderId: "508203526036"
+          };
+          firebase.initializeApp(config);
+
+        // variable to reference the database
+          var database = firebase.database();
+
+        // initial search value
+          var search = "Michael Jackson"
+
+        //calling value from search bar and inputting to firebase
+        $(document).on("click", "#menu1", function(event){
+
+          event.preventDefault();
+
+          search = $(".search-query").val().trim();
+
+          console.log(database.ref());
+
+          database.ref("history").push(
+          {
+            Search: search,
+          });
+
+          console.log(database.ref().child("history"));
+
+          var historyRef= database.ref("history");
+
+          historyRef.on('value', function(snapshot){
+          $(".searchHistory").empty();
+          snapshot.forEach(function(childSnapshot) {
+          
+          console.log(childSnapshot.val().Search);
+
+          var newSearch = $("<p class='searchDropdown'>");
+          newSearch.text(childSnapshot.val().Search);
+
+          $(".searchHistory").append(newSearch);
+
+          return false;
+        });
+
+        });
+
+        });
+
+
 // -------------------------------------------------
 
 var globalResponse ;
@@ -106,7 +159,7 @@ function generated(){
           $(".append").empty();
         }
 
-        searchQuery = $("#search-box").val().trim();
+        searchQuery = $(".search-query").val().trim();
 
         queryURL = "http://api.musicgraph.com/api/v2/artist/search?api_key=4db32eb564d567abea9870b5e9381c4b&name=" + searchQuery + "&limit=1";
 
@@ -162,13 +215,13 @@ function generated(){
                   console.log(results3[0].venue);
                   console.log(results3[0].dates.start.localDate);
 
-              		for(var i = 0; i < 3; i++) {
+              		for(var i = 0; i < 2; i++) {
 
               			   console.log("results: " + results3[i].venue);
 
-                       $("#tour-dates").append("<div class='append'>" + results3[i].name + "</div>");
-                       $("#tour-dates").append("<div class='append'>" + results3[i]._embedded.venue[0].city.name + "</div>");
-                       $("#tour-dates").append("<div class='append'>" + results3[i].dates.start.localDate + "</div>");
+                       $("#tour-dates").append("<div class='append'><h4>VENUE:  </h4>" + results3[i].name + "</div>");
+                       $("#tour-dates").append("<div class='append'><h5>CITY:  </h5>" + results3[i]._embedded.venue[0].city.name + "</div>");
+                       $("#tour-dates").append("<div class='append'><h5>DATE:  </h5>" + results3[i].dates.start.localDate + "</div>");
                     }
               
             });
@@ -222,6 +275,10 @@ function generated(){
                   $("#artist-name").append("<h2 class='append'>" + response.artist.name + "</h2>");
 
                 }); 
+
+                $(".searchDropdown").on("click", function(){
+                  console.log("IT WORKS");
+                });
 
         });
 

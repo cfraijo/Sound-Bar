@@ -9,6 +9,7 @@ h3{
 
 p{
 	color: white;
+	padding-left: 5px;
 }
 
 nav{
@@ -35,4 +36,20 @@ nav{
 
 .center.dots{
 	color: white;
+}
+.searchDropdown{
+	color:black;
+}
+
+.searchHistory{
+	max-height: 200px;
+	overflow-y: scroll;
+}
+img {
+	padding: 5px;
+}
+
+h4, h5 {
+
+	color: orange;
 }

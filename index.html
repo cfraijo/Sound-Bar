@@ -4,12 +4,14 @@
 	<title>Sound Bar</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="assets/javascript/script.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
   <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
 
+  <link rel="stylesheet" type="text/css" href="style.css">
   
 </head>
 <body>
@@ -39,11 +41,18 @@
 
     <div id="custom-search-input">
       <div class="input-group col-md-8">
-        <input type="text" class="  search-query form-control" id="search-box" placeholder="Search"/>
+        <input type="text" class="search-query form-control" placeholder="Search Artist"/>
           <span class="input-group-btn">
-            <button class="btn btn-danger" type="button" id="button">
-              <span class=" glyphicon glyphicon-search"></span>
-            </button>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Recent Searches
+              <span class="caret"></span></button>
+              <div class="dropdown-menu searchHistory" aria-labelledby="menu1">
+                <div  class="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"></a> --></div>
+            </div>
+                <button class="btn btn-danger" type="button" id="button">
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
           </span>
       </div>
     </div>
@@ -92,14 +101,23 @@
 
   </div>
 
+    <!--Footer-->
+
+<!--/Footer-->
+
+
 </div> <!-- closes out container -->
 
   <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
   <script src="assets/javascript/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="slick/slick.min.js"></script>
 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
  <!--  <script type="text/javascript">
     $(document).ready(function(){
       $('.center').slick({
