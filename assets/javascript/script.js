@@ -1,38 +1,66 @@
 $(document).ready(function(){  
 
-      $(".center").slick({
-        infinite: true,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-      });
+      $('.center').slick({
+          // centerMode: true,
+          centerPadding: '60px',
+          slidesToShow: 3,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: true,
+                // centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 3
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                arrows: true,
+                // centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+
 // -------------------------------------------------
 
 var globalResponse ;
 var url = "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=9bbc09319f9d9e5f95dfe0da622dbd29&format=json"
 //var url = "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=9bbc09319f9d9e5f95dfe0da622dbd29&format=json"
 var ranNums = generated();
-$(document).on('click', function(){
+// $(document).on('click', function(){
     $.ajax({
             url: url, 
             type: 'get',
             success: function(response){
                 for (var i = 0; i < ranNums.length; i++) {
                     var iDiv = document.createElement('div');
-                    iDiv.id = 'albums';
-                    iDiv.className = 'album';
-                    var div = document.getElementById("center");
-                    $(div).append(iDiv);
-                    // The variable iDiv is still good... Just append to it.
+                    // iDiv.id = 'albums';
+                    iDiv.className = 'albums';
+                    var div = $(".slick-track");
+                    div.css("display", "inline-flex");
                     var image = $('<img>');
                     var math = generated();
-                    image.attr('src',response.artists.artist[i].image[3]['#text']);
-                    // console.log(response.artists.artist[i].image[3]);
-                    $(iDiv).append(image);      
+                    var min = Math.ceil(0);
+                    var max = Math.floor(49);
+                    var maybe = Math.floor(Math.random() * (max - min + 1)) + min
+                    image.attr('src',response.artists.artist[maybe].image[2]['#text']);
+                    
+
+                    $(iDiv).append(image);
+                    $(div).append(iDiv);
+                    
+
+                          
                 };
                 
             }
     })
-    });
+    // });
 //random number including 0 and 9
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -134,7 +162,7 @@ function generated(){
                   console.log(results3[0].venue);
                   console.log(results3[0].dates.start.localDate);
 
-              		for(var i = 0; i < 5; i++) {
+              		for(var i = 0; i < 3; i++) {
 
               			   console.log("results: " + results3[i].venue);
 
