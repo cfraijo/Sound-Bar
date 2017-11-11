@@ -3,6 +3,10 @@ body{
 	color: white;
 }
 
+h2{
+	text-align: center;
+}
+
 h3{
 	color: white;
 }
@@ -52,4 +56,20 @@ img {
 h4, h5 {
 
 	color: orange;
+}
+
+.bios{
+	margin: 10px;
+	padding: 0px;
+}
+
+#avatar{
+	width: 150px;
+	border-radius:50%;
+	align-items: center;
+	margin: 0 auto;
+}
+
+#avatarname{
+	text-align: center;
 }

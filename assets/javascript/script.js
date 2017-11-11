@@ -43,7 +43,7 @@ $(document).ready(function(){
           var search = "Michael Jackson"
 
         //calling value from search bar and inputting to firebase
-        $(document).on("click", "#menu1", function(event){
+        $(document).on("click", ".btn-danger", function(event){
 
           event.preventDefault();
 
@@ -69,9 +69,15 @@ $(document).ready(function(){
           var newSearch = $("<p class='searchDropdown'>");
           newSearch.text(childSnapshot.val().Search);
 
-          $(".searchHistory").append(newSearch);
+          $(".searchHistory").prepend(newSearch);
 
           return false;
+
+          $('.searchQuery').keypress(function(e){
+            if(e.which == 13){//Enter key pressed
+              $('#menu1').click();//Trigger search button click event
+          }
+    });
         });
 
         });
@@ -157,7 +163,8 @@ function generated(){
         if(searchQuery !== undefined){
 
           $(".append").empty();
-        }
+
+        };
 
         searchQuery = $(".search-query").val().trim();
 
@@ -283,3 +290,4 @@ function generated(){
         });
 
 });
+
